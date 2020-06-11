@@ -37,4 +37,5 @@ _If facing any errors try renaming file "test.env" to ".env"_
 
 ---
 
-© Copyright 2020, [Vikas Choubey](vikas.cby@gmail.com)
+© Copyright 2020, Vikas Choubey
+(vikas.cby@gmail.com)
