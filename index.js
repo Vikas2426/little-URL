@@ -9,9 +9,13 @@ const { nanoid } = require("nanoid");
 const mongoose = require("mongoose");
 const Url = require("./schema.js");
 
+const port = process.env.PORT || 5000;
+const dbURI = process.env.MONGODB_URI || "mongodb://localhost:27018/littleUrl"
+
+
 //MongoDB connection
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost:27018/littleUrl",
+  dbURI,
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
@@ -83,7 +87,7 @@ app.post("/url", async (req, res, next) => {
     } else {                    //if received slug does not exist in DB then save and send reply
       saveToDB(slug, url);
       res.json({
-        shortUrl: `http://localhost:3000/${slug}`
+        shortUrl: `http://localhost:${PORT}/${slug}`
       });
     }
   } catch (error) {
@@ -106,7 +110,7 @@ app.use(require("./middlewares"));
 
 // app.get("/:id", (req, res) => {});
 
-const port = process.env.PORT || 5000;
+
 
 app.listen(port, (error) => {
   if (!error) {

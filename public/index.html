@@ -52,7 +52,7 @@
 
     submitBtn.addEventListener("click", async (e) => {
       e.preventDefault();
-      await fetch("http://localhost:3000/url", {
+      await fetch("/url", {
         method: "Post",
         headers: {
           "content-type": "application/json",
@@ -64,9 +64,11 @@
     });
 
     textarea.addEventListener("click", () => {
-      textarea.select();
-      document.execCommand("copy");
-      alert("URL copied");
+      if (textarea.innerText.contains("http")) {
+        textarea.select();
+        document.execCommand("copy");
+        alert("URL copied");
+      }
     });
   </script>
 </html>

@@ -1,3 +1,5 @@
+const environment = process.env.NODE_ENV;
+
 module.exports = function (error, req, res, next) {
   if (error.status) {
     res.status(error.status);
@@ -6,6 +8,6 @@ module.exports = function (error, req, res, next) {
   }
   res.json({
     message: error.message,
-    stack: process.env.NODE_ENV === "production" ? "🐸" : error.stack,
+    stack: environment === "production" ? "🐸" : error.stack,
   });
 };
