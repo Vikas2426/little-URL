@@ -1,0 +1,25 @@
+{
+  "name": "little-url",
+  "version": "1.0.0",
+  "description": "Fullstack URL shortner",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.22.1",
+    "mongoose": "^5.9.18",
+    "morgan": "^1.10.0",
+    "nanoid": "^3.1.9",
+    "yup": "^0.29.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Vikas Choubey",
+  "license": "ISC"
+}

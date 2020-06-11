@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+      integrity="sha256-2YQRJMXD7pIAPHiXr0s+vlRWA7GYJEK0ARns7k2sbHY="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.min.css" />
+    <title>Little URL</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://img.icons8.com/fluent/48/000000/link.png"
+    />
+  </head>
+  <body>
+    <header>
+      <h4>
+        <img src="https://img.icons8.com/cute-clipart/64/000000/link.png" />
+        Little URLs for you !!
+      </h4>
+    </header>
+    <form>
+      <input
+        type="text"
+        name="url"
+        id="url"
+        placeholder="URL"
+        autofocus
+        value=""
+      />
+      <input
+        type="text"
+        name="slug"
+        id="slug"
+        placeholder="Shortcut"
+        value=""
+      />
+      <button class="button-primary" type="submit">Generate</button>
+    </form>
+    <textarea name="littleURL" id="output" cols="30" rows="1"></textarea>
+  </body>
+  <script>
+    const submitBtn = document.querySelector("button");
+    const url = document.querySelector("#url");
+    const slug = document.querySelector("#slug");
+    const textarea = document.querySelector("#output");
+
+    submitBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      await fetch("http://localhost:3000/url", {
+        method: "Post",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ slug: slug.value, url: url.value }),
+      })
+        .then((res) => res.json())
+        .then((res) => (textarea.innerText = res.shortUrl));
+    });
+
+    textarea.addEventListener("click", () => {
+      textarea.select();
+      document.execCommand("copy");
+      alert("URL copied");
+    });
+  </script>
+</html>

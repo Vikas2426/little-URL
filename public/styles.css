@@ -1,0 +1,25 @@
+body {
+  background-color: #2688b5;
+  background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(192, 192, 192);
+}
+
+input,
+button,
+textarea {
+  display: block;
+  width: 50%;
+  margin: 1% auto;
+}
+
+textarea {
+  resize: none;
+  cursor: pointer;
+}
