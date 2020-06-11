@@ -1,17 +1,18 @@
-##Little URL
+## Little URL
+
 **Version 1.0.0**
 _FullStack Web App for Shortening URLs._
 
 ---
 
-####Pre-requisites:
+#### Pre-requisites:
 
 1. node
 1. mongodb
 
 ---
 
-####Installation Steps:
+#### Installation Steps:
 
 1. clone repository
 1. cd to local repository folder
